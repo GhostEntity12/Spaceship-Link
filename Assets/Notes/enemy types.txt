@@ -1,0 +1,37 @@
+Enemy Types:
+
+Base enemy - 1 point
+-regular speed
+-does average damage
+-aims to suicide
+
+fast enemy - 3 points
+-fast speed
+-does average damage
+-aims to suicide
+
+gun enemy - 3 enemy
+-attacks from range
+-does less damage
+-sustained damage
+
+strong enemy - 5 points
+-regular speed
+-does increased damage
+-aims to suicide
+
+tank enemy- 5 points
+-regular speed
+-increased health
+-aims to suicide
+
+sniper enemy - 7 points
+-attacks from greater range
+-does less damage
+-sustained damage
+
+large enemy - 10 points
+-bigger hitbox
+-more health
+-does massive damage
+-aims to suicide

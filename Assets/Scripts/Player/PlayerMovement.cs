@@ -40,7 +40,6 @@ public class PlayerMovement : MonoBehaviour
             float dz = worldPos.z - transform.position.z;
             float angle = 90 - (Mathf.Atan2(dz, dx) * Mathf.Rad2Deg);
             targetRotation = Quaternion.Euler(new Vector3(0, angle, 0));
-            Debug.DrawLine(c.transform.position, worldPos);
         }
         else
         {

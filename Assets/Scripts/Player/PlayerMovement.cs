@@ -4,33 +4,52 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
 
+
 public class PlayerMovement : MonoBehaviour
 {
     Vector2 movementVector;
     Vector2 lookVector;
+    Quaternion targetRotation;
     public float maxSpeed = 5;
     public float rotateSpeed = 5;
     new Rigidbody rigidbody;
+    PlayerInput playerInput;
+
+    bool isKeyboard;
+    Camera c;
+    float pHeight;
 
     // Start is called before the first frame update
     void Start()
     {
+        playerInput = GetComponent<PlayerInput>();
         rigidbody = GetComponent<Rigidbody>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        isKeyboard = playerInput.currentControlScheme == "KBM";
+        c = Camera.main;
+        pHeight = c.transform.position.y - transform.position.y;
     }
 
     private void FixedUpdate()
     {
         rigidbody.velocity = new Vector3(movementVector.x, 0, movementVector.y) * maxSpeed;
-        if (lookVector != Vector2.zero)
+
+        if (isKeyboard)
         {
-            rigidbody.MoveRotation(Quaternion.RotateTowards(rigidbody.rotation, Quaternion.LookRotation(new Vector3(lookVector.x, 0, lookVector.y)), rotateSpeed));
+            Vector3 worldPos = c.ScreenToWorldPoint(new Vector3(lookVector.x, lookVector.y, pHeight));
+            float dx = worldPos.x - transform.position.x;
+            float dz = worldPos.z - transform.position.z;
+            float angle = 90 - (Mathf.Atan2(dz, dx) * Mathf.Rad2Deg);
+            targetRotation = Quaternion.Euler(new Vector3(0, angle, 0));
         }
+        else
+        {
+            if (lookVector != Vector2.zero)
+            {
+                targetRotation = Quaternion.LookRotation(new Vector3(lookVector.x, 0, lookVector.y));
+            }
+        }
+
+        rigidbody.MoveRotation(Quaternion.RotateTowards(rigidbody.rotation, targetRotation.normalized, rotateSpeed));
     }
 
     public void OnMove(CallbackContext context)

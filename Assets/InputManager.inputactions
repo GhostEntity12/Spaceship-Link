@@ -15,17 +15,17 @@
                 },
                 {
                     "name": "Move",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "a9d4766a-79c4-4cca-ad01-8ae78b7bd5fb",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 },
                 {
                     "name": "Look",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "748b6861-1405-4347-8bd5-1b13cd6551bd",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 }
@@ -87,7 +87,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "2D Vector",
+                    "name": "Mouse",
                     "id": "c3ec914e-37b0-439b-84b7-e31965feeb3c",
                     "path": "2DVector(mode=2)",
                     "interactions": "",
@@ -195,6 +195,17 @@
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "05c2d96c-63ba-4c27-ad6c-dcfe20ae161d",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KBM",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 },
                 {
                     "name": "",

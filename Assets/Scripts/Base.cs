@@ -11,10 +11,13 @@ public class Base : MonoBehaviour
 		if (collision.gameObject.layer == 7)
 		{
 			Enemy collidedEnemy = collision.gameObject.GetComponent<Enemy>();
-			baseHealth -= collidedEnemy.damage;
-			collidedEnemy.DestroyEnemy();
+			if (collidedEnemy is MeleeEnemy meleeEnemy)
+			{
+				baseHealth -= meleeEnemy.collisionDamage;
+				collidedEnemy.DestroyEnemy();
 
-			GameManager.instance.score += collidedEnemy.points;
+				GameManager.instance.score += collidedEnemy.points;
+			}
 		}
 	}
 }

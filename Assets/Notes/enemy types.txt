@@ -1,37 +1,49 @@
+Baseline damage - 10hp
+Base health - 100hp
+
 Enemy Types:
 
 Base enemy - 1 point
--regular speed
--does average damage
--aims to suicide
+- Melee
+- 10hp
+- 10 damage
+- normal speed
 
 fast enemy - 3 points
--fast speed
--does average damage
--aims to suicide
+- Melee
+- 7hp
+- 7 damage
+- fast speed
 
 gun enemy - 3 enemy
--attacks from range
--does less damage
--sustained damage
+- Ranged
+- 8hp
+- 1 damage/0.5s
+- short range
+- normal speed
 
 strong enemy - 5 points
--regular speed
--does increased damage
--aims to suicide
+- Melee
+- 25hp
+- 20 damage
+- slightly slower speed
 
 tank enemy- 5 points
--regular speed
--increased health
--aims to suicide
+- Melee
+- 60hp
+- 20 damage
+- moderately slower speed
 
 sniper enemy - 7 points
--attacks from greater range
--does less damage
--sustained damage
+- Ranged
+- 15hp
+- 5 damage/2s
+- long range
+- slightly slower speed
 
 large enemy - 10 points
--bigger hitbox
--more health
--does massive damage
--aims to suicide
+- Melee
+- 100hp
+- 100 damage
+- very large
+- slow speed

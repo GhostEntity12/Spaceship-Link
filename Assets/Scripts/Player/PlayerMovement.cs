@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rigidbody.velocity = (new Vector3(movementVector.x, 0, movementVector.y) * maxSpeed);
+        rigidbody.velocity = new Vector3(movementVector.x, 0, movementVector.y) * maxSpeed;
         if (lookVector != Vector2.zero)
         {
             rigidbody.MoveRotation(Quaternion.RotateTowards(rigidbody.rotation, Quaternion.LookRotation(new Vector3(lookVector.x, 0, lookVector.y)), rotateSpeed));

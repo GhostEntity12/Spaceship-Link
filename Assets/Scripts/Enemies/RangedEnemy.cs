@@ -24,7 +24,6 @@ public class RangedEnemy : Enemy
 
 	private void OnTriggerEnter(Collider other)
 	{
-		print("other" + other.name + other.gameObject.layer);
 		if (other.gameObject.layer == 8)
 		{
 			shootAtBase = true;

@@ -14,9 +14,9 @@ TagManager:
   - Player
   - Enemy
   - Base
-  - Projectile
+  - PlayerProjectile
+  - EnemyProjectile
   - Obstacles
-  - 
   - 
   - 
   - 

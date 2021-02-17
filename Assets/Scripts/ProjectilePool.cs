@@ -12,11 +12,4 @@ public class ProjectilePool : Pool
 	}
 
 	public Projectile GetPooledProjectile() => base.GetPooledObject() as Projectile;
-
-	public override void ReturnPooledObject(Poolable returningObject)
-	{
-		returningObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-
-		base.ReturnPooledObject(returningObject);
-	}
 }

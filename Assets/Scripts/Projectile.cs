@@ -20,11 +20,11 @@ public class Projectile : Poolable
 	{
 		r.AddForce(transform.forward * projectileSpeed, ForceMode.VelocityChange);
 		damage = _damage;
-		Invoke("Remove", 3f);
+		Invoke("RePool", 3f);
 		Debug.DrawRay(transform.position, transform.forward, Color.white, 0.3f);
 	}
 
-	void Remove()
+	void RePool()
 	{
 		r.velocity = Vector3.zero;
 		r.rotation = Quaternion.identity;

@@ -1,20 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ProjectilePool : Pool
 {
-	public Projectile GetPooledProjectile()
+	private void Start()
 	{
-		Projectile p = base.GetPooledObject().GetComponent<Projectile>();
-		p.sourcePool = this;
-		p.gameObject.SetActive(true);
-		return p;
+		if (!(sourceObject is Projectile))
+		{
+			Debug.LogError($"ProjectilePool {gameObject.name} has a prefab that is not a projectile", this);
+			enabled = false;
+		}
 	}
 
-	public override void ReturnPooledObject(GameObject @object)
+	public Projectile GetPooledProjectile() => base.GetPooledObject() as Projectile;
+
+	public override void ReturnPooledObject(Poolable returningObject)
 	{
-		base.ReturnPooledObject(@object);
-		@object.GetComponent<Rigidbody>().velocity = Vector3.zero;
+		returningObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+		base.ReturnPooledObject(returningObject);
 	}
 }

@@ -4,14 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody))]
-public class Projectile : MonoBehaviour
+public class Projectile : Poolable
 {
 	Rigidbody r;
 	public float projectileSpeed;
 	//[System.NonSerialized]
 	public float damage;
-	[System.NonSerialized]
-	public Pool sourcePool;
 
 	private void Awake()
 	{
@@ -31,6 +29,6 @@ public class Projectile : MonoBehaviour
 		r.velocity = Vector3.zero;
 		r.rotation = Quaternion.identity;
 		r.position = Vector3.zero;
-		sourcePool.ReturnPooledObject(gameObject);
+		ReturnToPool();
 	}
 }

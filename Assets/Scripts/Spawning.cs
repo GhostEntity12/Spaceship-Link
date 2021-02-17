@@ -2,10 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class EnemySpawningClass
+{
+    public EnemyPool enemyPool;
+    public int cost;
+}
+
 public class Spawning : MonoBehaviour
 {
     public AnimationCurve difficultyCurve;
-    public GameObject cube;
     Camera c;
     readonly float[] offscreenPos = new float[2] { -0.1f, 1.1f };
 
@@ -16,9 +22,10 @@ public class Spawning : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Spawn(Enemy enemy)
     {
         float sidePos = Random.Range(-0.1f, 1.1f);
-        Instantiate(cube, c.ViewportToWorldPoint(Random.value > 0.5 ? new Vector3(offscreenPos[Random.Range(0, 2)], sidePos, c.transform.position.y) : new Vector3(sidePos, offscreenPos[Random.Range(0, 2)], c.transform.position.y)), Quaternion.identity);
+        Vector3 position = c.ViewportToWorldPoint(Random.value > 0.5 ? new Vector3(offscreenPos[Random.Range(0, 2)], sidePos, c.transform.position.y) : new Vector3(sidePos, offscreenPos[Random.Range(0, 2)], c.transform.position.y));
+        enemy.transform.position = position;
     }
 }

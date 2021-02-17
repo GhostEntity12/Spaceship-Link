@@ -303,7 +303,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  cube: {fileID: 5656397426896654118}
 --- !u!4 &167662689
 Transform:
   m_ObjectHideFlags: 0
@@ -929,7 +928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff5b44ee5b5ff14c8e3f3c9fabc2882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3835170199761859876, guid: 2d206b9edb5e88e45b07f5339ba92771, type: 3}
+  sourceObject: {fileID: 6152198023824592158, guid: 2d206b9edb5e88e45b07f5339ba92771, type: 3}
 --- !u!4 &1173612485
 Transform:
   m_ObjectHideFlags: 0
@@ -1517,29 +1516,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7bd6216887bb2d4a8006d84694d8fe3, type: 3}
---- !u!1 &510504306069612626 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7216697809550040610, guid: b6da1f4122b0b8d4e8382eec81e9eeb6, type: 3}
-  m_PrefabInstance: {fileID: 7148180840932439664}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &510504306069612628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 510504306069612626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47dec5e17770ea3439730c28572ce079, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 15
-  points: 700
-  moveSpeed: 4
-  destination: {fileID: 74389392}
-  projectileDamage: 5
-  fireSpeed: 2
 --- !u!1001 &541871642087723559
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1725,10 +1701,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8506135641657389262, guid: 41b506b3736151349bd2d17b9a32472f, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 8005233834153758614, guid: 41b506b3736151349bd2d17b9a32472f, type: 3}
+      propertyPath: destination
+      value: 
+      objectReference: {fileID: 74389392}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41b506b3736151349bd2d17b9a32472f, type: 3}
 --- !u!1001 &5495508227625222264
@@ -1796,29 +1772,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc1624855dee08b48bbf8b2733de4666, type: 3}
---- !u!1 &5656397426896654118 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7002794025376981094, guid: 41b506b3736151349bd2d17b9a32472f, type: 3}
-  m_PrefabInstance: {fileID: 3409615716579110720}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5656397426896654120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5656397426896654118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47dec5e17770ea3439730c28572ce079, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 8
-  points: 300
-  moveSpeed: 5
-  destination: {fileID: 74389392}
-  projectileDamage: 1
-  fireSpeed: 0.5
 --- !u!1001 &5679195200491883642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1891,10 +1844,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5097030048249239982, guid: b6da1f4122b0b8d4e8382eec81e9eeb6, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 510504306069612628, guid: b6da1f4122b0b8d4e8382eec81e9eeb6, type: 3}
+      propertyPath: destination
+      value: 
+      objectReference: {fileID: 74389392}
     - target: {fileID: 7216697809550040610, guid: b6da1f4122b0b8d4e8382eec81e9eeb6, type: 3}
       propertyPath: m_Name
       value: EnemyRangedSniper

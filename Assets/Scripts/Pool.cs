@@ -4,28 +4,31 @@ using UnityEngine;
 
 public abstract class Pool : MonoBehaviour
 {
-    public GameObject prefab;
-    Queue<GameObject> itemPool = new Queue<GameObject>();
+    public Poolable sourceObject;
+    Queue<Poolable> itemPool = new Queue<Poolable>();
 
-    public virtual GameObject GetPooledObject()
+    public virtual Poolable GetPooledObject()
     {
-        GameObject newObject;
+        Poolable newObject;
         if (itemPool.Count == 0)
         {
             Debug.LogWarning("Ran out of items in the pool, instantiating a new instance");
-            newObject = Instantiate(prefab);
-            newObject.name = prefab.name + " (Pooled)";
+            newObject = Instantiate(sourceObject.gameObject).GetComponent<Poolable>();
+            newObject.sourcePool = this;
+            newObject.gameObject.name = sourceObject.name + " (Pooled)";
         }
         else
         {
             newObject = itemPool.Dequeue();
         }
+
+        newObject.gameObject.SetActive(true);
         return newObject;
     }
 
-    public virtual void ReturnPooledObject(GameObject @object)
+    public virtual void ReturnPooledObject(Poolable returningObject)
     {
-        itemPool.Enqueue(@object);
-        @object.SetActive(false);
+        itemPool.Enqueue(returningObject);
+        returningObject.gameObject.SetActive(false);
     }
 }

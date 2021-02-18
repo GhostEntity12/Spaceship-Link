@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: 5460615932280417427}
   - component: {fileID: 3374646710118953060}
   - component: {fileID: 8506135641657389262}
+  - component: {fileID: 8005233834153758614}
   m_Layer: 0
   m_Name: EnemyRangedBasic
   m_TagString: Untagged
@@ -412,11 +413,29 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7002794025376981094}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8005233834153758614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7002794025376981094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47dec5e17770ea3439730c28572ce079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 8
+  points: 300
+  moveSpeed: 5
+  destination: {fileID: 0}
+  projectileDamage: 1
+  fireSpeed: 0.5
 --- !u!1 &7014624961443117480
 GameObject:
   m_ObjectHideFlags: 0

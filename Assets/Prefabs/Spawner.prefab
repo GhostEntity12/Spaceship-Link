@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3151313491006710539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3151313491006710581}
+  - component: {fileID: 3151313491006710580}
+  m_Layer: 0
+  m_Name: Spawing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3151313491006710581
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3151313491006710539}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.5149326, y: 2.4646397, z: -3.2247076}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3151313491006710580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3151313491006710539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31284607cb2a0c54cbdd97eaaa40c862, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultyCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  meleeBasic:
+    enemyPrefab: {fileID: 5281739479069938293, guid: c5d0b1c2637a91d49b7ead9f981e37af, type: 3}
+    cost: 1
+  meleeFast:
+    enemyPrefab: {fileID: 4021815178485382804, guid: fa512e8e34ea042439008e923730ee4e, type: 3}
+    cost: 3
+  meleeStrong:
+    enemyPrefab: {fileID: 5495508227573221824, guid: fc1624855dee08b48bbf8b2733de4666, type: 3}
+    cost: 5
+  meleeTank:
+    enemyPrefab: {fileID: 435993063375199519, guid: c29fa395b8061a24fb1e543f8c9e30ac, type: 3}
+    cost: 5
+  meleeBoss:
+    enemyPrefab: {fileID: 339931356429628502, guid: f1a7f31817e517046b0ae0e034fcb7aa, type: 3}
+    cost: 10
+  rangedBasic:
+    enemyPrefab: {fileID: 8005233834153758614, guid: 41b506b3736151349bd2d17b9a32472f, type: 3}
+    cost: 3
+  rangedSniper:
+    enemyPrefab: {fileID: 510504306069612628, guid: b6da1f4122b0b8d4e8382eec81e9eeb6, type: 3}
+    cost: 7

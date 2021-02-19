@@ -1,19 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InputTesting : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        print(Gamepad.all.Count);
-    }
+	// Start is called before the first frame update
+	void Start()
+	{
+		print(Gamepad.all.Count);
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
+	// Update is called once per frame
+	void Update()
+	{
 
-    }
+	}
 }

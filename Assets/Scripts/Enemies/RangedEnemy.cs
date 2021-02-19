@@ -1,11 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RangedEnemy : Enemy
 {
 	public int projectileDamage;
-	public float fireSpeed;
+
+	public ProjectilePool projectilePool;
+
+	public float fireSpeed = 0.1f;
+	float fireTimer = 0;
 
 	bool shootAtBase;
 
@@ -19,6 +21,16 @@ public class RangedEnemy : Enemy
 		{
 			r.velocity = Vector3.zero;
 			r.MoveRotation(Quaternion.LookRotation(destination.position - transform.position));
+
+			if (fireTimer == 0)
+			{
+				fireTimer = fireSpeed;
+				Projectile projectile = projectilePool.GetPooledProjectile();
+				projectile.transform.position = this.transform.position;
+				projectile.transform.rotation = this.transform.rotation;
+				projectile.Fire(projectileDamage);
+			}
+			fireTimer = Mathf.Max(0, fireTimer - Time.fixedDeltaTime);
 		}
 	}
 

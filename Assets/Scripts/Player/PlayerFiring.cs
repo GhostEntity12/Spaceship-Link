@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
@@ -29,7 +27,7 @@ public class PlayerFiring : MonoBehaviour
                 projectile.transform.rotation = this.transform.rotation;
                 projectile.Fire(GameManager.instance.damageMultiplier);
             }
-            fireTimer = Mathf.Max(0, fireTimer - Time.deltaTime);
+            fireTimer = Mathf.Max(0, fireTimer - Time.fixedDeltaTime);
         }
     }
 

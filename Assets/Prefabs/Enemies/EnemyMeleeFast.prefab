@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 2247893949702371435}
   - component: {fileID: 8804319211485619356}
   - component: {fileID: 4021815178485382804}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyMeleeFast
   m_TagString: Untagged
   m_Icon: {fileID: 0}

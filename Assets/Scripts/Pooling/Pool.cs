@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,10 +12,7 @@ public abstract class Pool : MonoBehaviour
 		Poolable newObject;
 		if (itemPool.Count == 0)
 		{
-			Debug.LogWarning("Ran out of items in the pool, instantiating a new instance");
-			newObject = Instantiate(sourceObject.gameObject).GetComponent<Poolable>();
-			newObject.sourcePool = this;
-			newObject.gameObject.name = sourceObject.name + " (Pooled)";
+			newObject = CreateNewPooledObject();
 		}
 		else
 		{
@@ -27,7 +25,17 @@ public abstract class Pool : MonoBehaviour
 
 	public virtual void ReturnPooledObject(Poolable returningObject)
 	{
+		Debug.Log($"Returning {gameObject.name} to pool");
 		itemPool.Enqueue(returningObject);
 		returningObject.gameObject.SetActive(false);
+	}
+
+	public virtual Poolable CreateNewPooledObject()
+	{
+		Debug.LogWarning("Ran out of items in the pool, instantiating a new instance");
+		Poolable newObject = Instantiate(sourceObject.gameObject).GetComponent<Poolable>();
+		newObject.sourcePool = this;
+		newObject.gameObject.name = sourceObject.name + " (Pooled)";
+		return newObject;
 	}
 }

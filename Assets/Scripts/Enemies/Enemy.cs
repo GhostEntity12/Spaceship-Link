@@ -7,26 +7,38 @@ public abstract class Enemy : Poolable
 	public int moveSpeed;
 	public Transform destination;
 	protected Rigidbody r;
+	bool active;
 
 	private void Awake()
 	{
 		r = GetComponent<Rigidbody>();
-		Spawn(destination.position);
 	}
 
-	public void Spawn(Vector3 destination)
+	public void Activate(Base b)
 	{
-		r.MoveRotation(Quaternion.LookRotation(destination - transform.position));
+		destination = b.transform;
+		active = true;
 	}
 
 	protected virtual void FixedUpdate()
 	{
-		r.MoveRotation(Quaternion.LookRotation(destination.position - transform.position));
-		r.velocity = transform.forward * moveSpeed;
+		if (active)
+		{
+			r.MoveRotation(Quaternion.LookRotation(destination.position - transform.position));
+			r.velocity = transform.forward * moveSpeed;
+		}
 	}
 
 	public void DestroyEnemy()
 	{
-
+		if (active)
+		{
+			active = false;
+			Spawning.instance.activeEnemyCount--;
+			r.velocity = Vector3.zero;
+			r.rotation = Quaternion.identity;
+			r.position = Vector3.zero;
+			ReturnToPool();
+		}
 	}
 }

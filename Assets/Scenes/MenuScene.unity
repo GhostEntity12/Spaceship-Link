@@ -1132,7 +1132,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.00012207031, y: 0}
-  m_SizeDelta: {x: 544.3, y: 154.2}
+  m_SizeDelta: {x: 556.64, y: 154.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &688112004
 MonoBehaviour:
@@ -3524,12 +3524,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Made by
 
-    James Leung, Massimo Gamboni,
+    James Leung, Massimo Gamboni and Nicholas Burke
 
-    Nicholas Burke and Nora
-    Haze
-
-    for the Brackeys 2021.1 Game Jam'
+    for
+    the Brackeys 2021.1 Game Jam'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f736c9f318bc6d94fbdb46ff2cf140c1, type: 2}
   m_sharedMaterial: {fileID: 5967947509387660278, guid: f736c9f318bc6d94fbdb46ff2cf140c1, type: 2}
@@ -3556,7 +3554,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.65
+  m_fontSize: 25.3
   m_fontSizeBase: 17.5
   m_fontWeight: 400
   m_enableAutoSizing: 1

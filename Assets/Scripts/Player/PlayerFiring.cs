@@ -23,9 +23,7 @@ public class PlayerFiring : MonoBehaviour
             {
                 fireTimer = fireSpeed;
                 Projectile projectile = projectilePool.GetPooledProjectile();
-                projectile.transform.position = this.transform.position;
-                projectile.transform.rotation = this.transform.rotation;
-                projectile.Fire(GameManager.instance.damageMultiplier);
+                projectile.Fire(GameManager.instance.damageMultiplier, transform.position, transform.rotation);
             }
             fireTimer = Mathf.Max(0, fireTimer - Time.fixedDeltaTime);
         }

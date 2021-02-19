@@ -26,9 +26,7 @@ public class RangedEnemy : Enemy
 			{
 				fireTimer = fireSpeed;
 				Projectile projectile = projectilePool.GetPooledProjectile();
-				projectile.transform.position = this.transform.position;
-				projectile.transform.rotation = this.transform.rotation;
-				projectile.Fire(projectileDamage);
+				projectile.Fire(projectileDamage, transform.position, transform.rotation);
 			}
 			fireTimer = Mathf.Max(0, fireTimer - Time.fixedDeltaTime);
 		}

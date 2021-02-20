@@ -34,6 +34,7 @@ public class Projectile : Poolable
 	{
 		if (active)
 		{
+			CancelInvoke();
 			active = false;
 			r.velocity = Vector3.zero;
 			r.rotation = Quaternion.identity;

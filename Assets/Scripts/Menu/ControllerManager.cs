@@ -53,6 +53,8 @@ public class ControllerManager : MonoBehaviour
 
 	public Color[] shipColors;
 
+	PlayerSetup setup;
+
 	private void Start()
 	{
 		menuManager = FindObjectOfType<MenuManager>();
@@ -76,7 +78,13 @@ public class ControllerManager : MonoBehaviour
 			// Special case: both players ready
 			if (player1Slot.state == PlayerMenuState.Ready && player2Slot.state == PlayerMenuState.Ready)
 			{
-				//inJoinMenu = false;
+				if (!setup)
+				{
+					setup = new GameObject("SetupData", typeof(PlayerSetup)).GetComponent<PlayerSetup>();
+					DontDestroyOnLoad(setup);
+				}
+				setup.p1Data = new PlayerSetupData(player1Slot.activeDevice, shipColors[player1Slot.colorIndex]);
+				setup.p2Data = new PlayerSetupData(player2Slot.activeDevice, shipColors[player2Slot.colorIndex]);
 			}
 
 			// Animations

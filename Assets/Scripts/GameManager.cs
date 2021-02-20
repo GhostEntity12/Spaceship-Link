@@ -33,8 +33,30 @@ public class GameManager : MonoBehaviour
 
 	private void Start()
 	{
-		player1.playerInput.SwitchCurrentControlScheme("KBM", Keyboard.current, Mouse.current);
-		player2.playerInput.SwitchCurrentControlScheme("Gamepad", Gamepad.current);
+		PlayerSetup setup = FindObjectOfType<PlayerSetup>();
+
+		if (setup)
+		{
+			SetupPlayer(player1, setup.p1Data);
+			SetupPlayer(player2, setup.p2Data);
+
+			Destroy(setup.gameObject);
+
+			print("Loaded setup data");
+		}
+		else
+		{
+			player1.playerInput.SwitchCurrentControlScheme("KBM", Keyboard.current, Mouse.current);
+			player2.playerInput.SwitchCurrentControlScheme("Gamepad", Gamepad.current);
+
+			Renderer renderer = player1.GetComponent<Renderer>();
+			renderer.materials[1].color = player1.color;
+			renderer.materials[3].color = player1.color;
+			renderer = player2.GetComponent<Renderer>();
+			renderer.materials[1].color = player2.color;
+			renderer.materials[3].color = player2.color;
+		}
+
 	}
 
 	// Update is called once per frame
@@ -55,5 +77,23 @@ public class GameManager : MonoBehaviour
 		line.SetPosition(0, player1.transform.position);
 		line.SetPosition(1, (player1.transform.position + player2.transform.position) / 2);
 		line.SetPosition(2, player2.transform.position);
+	}
+
+	void SetupPlayer(Player player, PlayerSetupData data)
+	{
+		switch (data.device)
+		{
+			case Gamepad _:
+				player.playerInput.SwitchCurrentControlScheme("Gamepad", data.device);
+				break;
+			case Keyboard _:
+				player.playerInput.SwitchCurrentControlScheme("KBM", data.device, Mouse.current);
+				break;
+		}
+		player.color = data.color;
+
+		Renderer renderer = player.GetComponent<Renderer>();
+		renderer.materials[1].color = player.color;
+		renderer.materials[3].color = player.color;
 	}
 }

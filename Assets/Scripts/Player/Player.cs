@@ -19,10 +19,4 @@ public class Player : MonoBehaviour
 		playerMovement = GetComponent<PlayerMovement>();
 		playerFiring = GetComponent<PlayerFiring>();
 	}
-
-	// Update is called once per frame
-	void Update()
-	{
-
-	}
 }

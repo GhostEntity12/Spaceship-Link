@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3872266534669536786}
   - component: {fileID: 1368082380439219623}
   - component: {fileID: 2193311182638755504}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 155059844294103865}
   - component: {fileID: 4665424066534562196}
   - component: {fileID: 6944201677477113352}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 3809871178534408444}
   - component: {fileID: 7044598048882054421}
   - component: {fileID: 4064778980770250599}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 3160708016451866144}
   - component: {fileID: 5097030048249239982}
   - component: {fileID: 510504306069612628}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyRangedSniper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,7 +316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7216697809550040610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.0500002, y: 0, z: -21.558222}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7337877913835224583}
@@ -436,6 +436,7 @@ MonoBehaviour:
   moveSpeed: 4
   destination: {fileID: 0}
   projectileDamage: 5
+  projectilePool: {fileID: 0}
   fireSpeed: 2
 --- !u!1 &7228493183286822892
 GameObject:
@@ -449,7 +450,7 @@ GameObject:
   - component: {fileID: 3541879136649660788}
   - component: {fileID: 4954914831415204620}
   - component: {fileID: 1102300098471751353}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -545,7 +546,7 @@ GameObject:
   - component: {fileID: 5204511804268010641}
   - component: {fileID: 2747723976805507074}
   - component: {fileID: 282791959968134514}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -640,7 +641,7 @@ GameObject:
   - component: {fileID: 400629061447051781}
   - component: {fileID: 7215363553449946410}
   - component: {fileID: 2795441120900054654}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

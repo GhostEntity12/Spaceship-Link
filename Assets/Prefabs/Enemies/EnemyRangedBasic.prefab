@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3509779215884955734}
   - component: {fileID: 1726101114326062051}
   - component: {fileID: 1979337096293273844}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 517582347459145085}
   - component: {fileID: 5023442145430382544}
   - component: {fileID: 7302290883187216460}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 3591429228837056184}
   - component: {fileID: 7262970181746764625}
   - component: {fileID: 4422761944013570339}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 3374646710118953060}
   - component: {fileID: 8506135641657389262}
   - component: {fileID: 8005233834153758614}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyRangedBasic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,6 +435,7 @@ MonoBehaviour:
   moveSpeed: 5
   destination: {fileID: 0}
   projectileDamage: 1
+  projectilePool: {fileID: 0}
   fireSpeed: 0.5
 --- !u!1 &7014624961443117480
 GameObject:
@@ -448,7 +449,7 @@ GameObject:
   - component: {fileID: 3760356375945656112}
   - component: {fileID: 4740976169951831368}
   - component: {fileID: 739743061622001917}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -544,7 +545,7 @@ GameObject:
   - component: {fileID: 38107417283433537}
   - component: {fileID: 7001459767129166702}
   - component: {fileID: 2576998653650993210}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

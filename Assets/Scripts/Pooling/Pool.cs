@@ -25,7 +25,7 @@ public abstract class Pool : MonoBehaviour
 
 	public virtual void ReturnPooledObject(Poolable returningObject)
 	{
-		Debug.Log($"Returning {gameObject.name} to pool");
+		Debug.Log($"Returning {returningObject.gameObject.name} to pool");
 		itemPool.Enqueue(returningObject);
 		returningObject.gameObject.SetActive(false);
 	}

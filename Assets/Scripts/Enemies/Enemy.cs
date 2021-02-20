@@ -7,7 +7,7 @@ public abstract class Enemy : Poolable
 	public int moveSpeed;
 	public Transform destination;
 	protected Rigidbody r;
-	bool active;
+	bool active = true;
 
 	private void Awake()
 	{

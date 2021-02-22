@@ -8,7 +8,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PostProcessing
   - Water
   - UI
   - Player
@@ -17,7 +17,7 @@ TagManager:
   - PlayerProjectile
   - EnemyProjectile
   - Obstacles
-  - 
+  - Border
   - 
   - 
   - 

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1006716103755894505}
   - component: {fileID: 1538190108227402074}
   - component: {fileID: 4345879301960471829}
-  - component: {fileID: 5649079261286145047}
+  - component: {fileID: 7457573761868597230}
   - component: {fileID: 3865142403914153493}
   - component: {fileID: 6152198023824592158}
   m_Layer: 10
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 5d586f615d6a63e49a3f4d87bf86c7a4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &5649079261286145047
-SphereCollider:
+--- !u!65 &7457573761868597230
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,7 +95,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &3865142403914153493
 Rigidbody:
@@ -126,3 +126,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSpeed: 20
+  shootSound: {fileID: 8300000, guid: 39c2f11d771807a4e93a2c8974693904, type: 3}

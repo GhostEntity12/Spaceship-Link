@@ -5,8 +5,8 @@ public class Projectile : Poolable
 {
 	Rigidbody r;
 	public float projectileSpeed;
-	[System.NonSerialized] public float damage;
-	bool active;
+	[System.NonSerialized] public int damage;
+	public AudioClip shootSound;
 
 	private void Awake()
 	{
@@ -21,16 +21,17 @@ public class Projectile : Poolable
 		}
 	}
 
-	public void Fire(float _damage, Vector3 position, Quaternion rotation)
+	public void Fire(int _damage, Vector3 position, Quaternion rotation)
 	{
 		active = true;
+		GameManager.instance.audioSource.PlayOneShot(shootSound, 0.2f);
 		transform.position = position;
 		transform.rotation = rotation;
 		damage = _damage;
-		Invoke("RePool", 3f);
+		Invoke("RePoolTimeout", 3f);
 	}
 
-	void RePool()
+	public void RePool()
 	{
 		if (active)
 		{
@@ -43,8 +44,17 @@ public class Projectile : Poolable
 		}
 	}
 
+	void RePoolTimeout()
+	{
+		Debug.Log($"Returning {gameObject.name} to pool: Timed out");
+		RePool();
+	}
+
 	private void OnCollisionEnter(Collision collision)
 	{
+		var explosion = GameManager.instance.projectileExplosionPool.GetPooledParticle();
+		explosion.transform.position = collision.GetContact(0).point;
+		Debug.Log($"Returning {gameObject.name} to pool: hit {collision.gameObject.name}");
 		RePool();
 	}
 }

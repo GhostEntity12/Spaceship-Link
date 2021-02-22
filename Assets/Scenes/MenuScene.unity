@@ -155,10 +155,10 @@ RectTransform:
   m_Father: {fileID: 1111856556}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 512, y: 512}
+  m_SizeDelta: {x: -60, y: -60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &18196603
 MonoBehaviour:
@@ -523,7 +523,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -537,7 +537,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 3
+  far clip plane: 6
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -631,7 +631,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -645,7 +645,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 3
+  far clip plane: 6
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -785,11 +785,11 @@ RectTransform:
   m_Father: {fileID: 772253336}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 637.85, y: -412.90002}
-  m_SizeDelta: {x: 544, y: 154}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -50, y: 50}
+  m_SizeDelta: {x: 570.9, y: 129.9}
+  m_Pivot: {x: 1, y: 0}
 --- !u!1 &570374763
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,10 +1129,10 @@ RectTransform:
   m_Father: {fileID: 525200434}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00012207031, y: 0}
-  m_SizeDelta: {x: 556.64, y: 154.2}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.000061035156, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &688112004
 MonoBehaviour:
@@ -1203,7 +1203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player1Slot:
-    shipRenderer: {fileID: 0}
+    shipRenderer: {fileID: 1906414884422230137}
     colorIndex: 0
     controlsText: {fileID: 2143496510}
     colorChangeText: {fileID: 570374765}
@@ -1222,7 +1222,7 @@ MonoBehaviour:
       offscreen: {fileID: 11400000, guid: f5d53e03548b2da4ea459e41a4794ccf, type: 2}
       onscreen: {fileID: 11400000, guid: 3179dbbb39ad41f4891ec19470b96193, type: 2}
   player2Slot:
-    shipRenderer: {fileID: 0}
+    shipRenderer: {fileID: 1906414885458712632}
     colorIndex: 0
     controlsText: {fileID: 1747655643646697462}
     colorChangeText: {fileID: 1264208062}
@@ -1241,7 +1241,20 @@ MonoBehaviour:
       offscreen: {fileID: 11400000, guid: bb8136e84898d17448ccd1af2b0019c4, type: 2}
       onscreen: {fileID: 11400000, guid: 205159e9b4f236247aee03d5832cca69, type: 2}
   inJoinMenu: 0
-  shipColors: []
+  shipColors:
+  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 1, g: 0.39462656, b: 0, a: 0}
+  - {r: 1, g: 0.72604626, b: 0, a: 0}
+  - {r: 0.9706241, g: 1, b: 0, a: 0}
+  - {r: 0.6476978, g: 1, b: 0, a: 0}
+  - {r: 0.26383924, g: 1, b: 0, a: 0}
+  - {r: 0, g: 1, b: 0.64177275, a: 0}
+  - {r: 0, g: 0.8399844, b: 1, a: 0}
+  - {r: 0, g: 0.44379663, b: 1, a: 0}
+  - {r: 0.16653156, g: 0, b: 1, a: 0}
+  - {r: 0.48538446, g: 0, b: 1, a: 0}
+  - {r: 0.7834158, g: 0, b: 1, a: 0}
+  - {r: 1, g: 0, b: 0.8013487, a: 0}
 --- !u!4 &690544352
 Transform:
   m_ObjectHideFlags: 0
@@ -2343,7 +2356,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Shooters in Space
+  m_text: Spaceship Link
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f736c9f318bc6d94fbdb46ff2cf140c1, type: 2}
   m_sharedMaterial: {fileID: 5967947509387660278, guid: f736c9f318bc6d94fbdb46ff2cf140c1, type: 2}
@@ -3045,10 +3058,10 @@ RectTransform:
   m_Father: {fileID: 1031166707}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 512, y: 512}
+  m_SizeDelta: {x: -60, y: -60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1477584045
 MonoBehaviour:
@@ -3499,8 +3512,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 15.000122, y: 0}
-  m_SizeDelta: {x: -70, y: -10}
+  m_AnchoredPosition: {x: 5.30002, y: 0}
+  m_SizeDelta: {x: -60.20004, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1858882660
 MonoBehaviour:
@@ -3522,12 +3535,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Made by
-
-    James Leung, Massimo Gamboni and Nicholas Burke
-
-    for
-    the Brackeys 2021.1 Game Jam'
+  m_text: "Made by James Leung with help from\nMassimo Gamboni and Nicholas Burke
+    \nfor the Brackeys 2021.1 Game Jam"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f736c9f318bc6d94fbdb46ff2cf140c1, type: 2}
   m_sharedMaterial: {fileID: 5967947509387660278, guid: f736c9f318bc6d94fbdb46ff2cf140c1, type: 2}
@@ -3554,10 +3563,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25.3
-  m_fontSizeBase: 17.5
+  m_fontSize: 24.2
+  m_fontSizeBase: 24.2
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -4469,7 +4478,11 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 79d93081929aa0940ac2f4545d342cf1, type: 2}
+  - {fileID: 2100000, guid: 469ecdd851d53cb418a1447aa0844a94, type: 2}
+  - {fileID: 2100000, guid: dc02da62516347c4c9837f8e89da2c4e, type: 2}
+  - {fileID: 2100000, guid: 6ec7784a733aa4646ab000325657ae39, type: 2}
+  - {fileID: 2100000, guid: 2ba1b0c20d909e34f8590dc5ab27633c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4510,7 +4523,11 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 79d93081929aa0940ac2f4545d342cf1, type: 2}
+  - {fileID: 2100000, guid: 469ecdd851d53cb418a1447aa0844a94, type: 2}
+  - {fileID: 2100000, guid: dc02da62516347c4c9837f8e89da2c4e, type: 2}
+  - {fileID: 2100000, guid: 6ec7784a733aa4646ab000325657ae39, type: 2}
+  - {fileID: 2100000, guid: 2ba1b0c20d909e34f8590dc5ab27633c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4612,7 +4629,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7770992060363789834}
   m_LocalRotation: {x: 0.044943526, y: 0.9512512, z: -0.16773124, w: 0.25488737}
-  m_LocalPosition: {x: 0.0016700029, y: 0.011926398, z: 1.7490358}
+  m_LocalPosition: {x: 0.0016700029, y: 0.011926398, z: 3.1590354}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4319863181648481460}
@@ -4627,7 +4644,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7770992061340511819}
   m_LocalRotation: {x: 0.044943456, y: -0.95125127, z: 0.16773124, w: 0.25488707}
-  m_LocalPosition: {x: 0, y: 0, z: 1.7500005}
+  m_LocalPosition: {x: 0, y: 0, z: 3.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4319863182693496053}
@@ -4789,7 +4806,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7770992060363789834}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -1745324314980066955, guid: 23cd3aa0bc7cdc7459961198bf0fbd2b, type: 3}
 --- !u!33 &8567412512655467841
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4797,4 +4814,4 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7770992061340511819}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -1745324314980066955, guid: 23cd3aa0bc7cdc7459961198bf0fbd2b, type: 3}

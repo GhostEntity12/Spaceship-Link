@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public enum PlayerMenuState { Null, Joined, Ready }
 
@@ -23,6 +25,10 @@ public class PlayerInputDevice
 	public Animatable join;
 	public Animatable ship;
 	public Animatable ready;
+
+	[NonSerialized] public float timer;
+	[NonSerialized] public bool canLeft = true;
+	[NonSerialized] public bool canRight = true;
 
 	public void SetDevice(InputDevice device)
 	{
@@ -46,7 +52,7 @@ public class ControllerManager : MonoBehaviour
 	readonly string keyboardChangeColor = "<sprite=\"controls\" name=keyboard_a><sprite=\"controls\" name=keyboard_d>\nChange Color";
 	readonly string keyboardReady = "<sprite=\"controls\" name=keyboard_space>\nReady";
 	readonly string gamepadControls = "<b><smallcaps>Controls</smallcaps></b><size=30>\nMove <sprite=\"controls\" name=xbox_stick_l>\nLook <sprite=\"controls\" name=xbox_stick_r>\nFire <sprite=\"controls\" name=xbox_trigger_r>";
-	readonly string gamepadChangeColor = "<sprite=\"controls\" name=arrow_l><sprite=\"controls\" name=xbox_stick_r><sprite=\"controls\" name=arrow_r>\nChange Color";
+	readonly string gamepadChangeColor = "<sprite=\"controls\" name=arrow_l><sprite=\"controls\" name=xbox_stick_l><sprite=\"controls\" name=arrow_r>\nChange Color";
 	readonly string gamepadReady = "<sprite=\"controls\" name=xbox_a>\nReady";
 
 	MenuManager menuManager;
@@ -57,6 +63,12 @@ public class ControllerManager : MonoBehaviour
 
 	private void Start()
 	{
+		setup = FindObjectOfType<PlayerSetup>();
+		if (!setup)
+		{
+			setup = new GameObject("SetupData", typeof(PlayerSetup)).GetComponent<PlayerSetup>();
+		}
+
 		menuManager = FindObjectOfType<MenuManager>();
 	}
 
@@ -78,13 +90,10 @@ public class ControllerManager : MonoBehaviour
 			// Special case: both players ready
 			if (player1Slot.state == PlayerMenuState.Ready && player2Slot.state == PlayerMenuState.Ready)
 			{
-				if (!setup)
-				{
-					setup = new GameObject("SetupData", typeof(PlayerSetup)).GetComponent<PlayerSetup>();
-					DontDestroyOnLoad(setup);
-				}
 				setup.p1Data = new PlayerSetupData(player1Slot.activeDevice, shipColors[player1Slot.colorIndex]);
 				setup.p2Data = new PlayerSetupData(player2Slot.activeDevice, shipColors[player2Slot.colorIndex]);
+
+				SceneManager.LoadScene(2);
 			}
 
 			// Animations
@@ -107,6 +116,7 @@ public class ControllerManager : MonoBehaviour
 			case PlayerMenuState.Joined:
 				if (PlayerDisconnected(player)) return;
 				if (PlayerReady(player)) return;
+				if (PlayerChangeColor(player)) return;
 				break;
 			case PlayerMenuState.Ready:
 				if (PlayerUnready(player)) return;
@@ -131,6 +141,7 @@ public class ControllerManager : MonoBehaviour
 				player.readyText.text = gamepadReady;
 				player.join.TriggerAnimation(player.join.offscreen);
 				player.ship.TriggerAnimation(player.ship.onscreen);
+				PlayerSetRandomColor(player);
 				return true;
 			}
 		}
@@ -139,7 +150,6 @@ public class ControllerManager : MonoBehaviour
 
 		if (Keyboard.current.spaceKey.wasPressedThisFrame)
 		{
-
 			player.SetDevice(Keyboard.current);
 			activeInputDevices.Add(Keyboard.current);
 			player.controlsText.text = keyboardControls;
@@ -147,6 +157,7 @@ public class ControllerManager : MonoBehaviour
 			player.readyText.text = keyboardReady;
 			player.join.TriggerAnimation(player.join.offscreen);
 			player.ship.TriggerAnimation(player.ship.onscreen);
+			PlayerSetRandomColor(player);
 			return true;
 		}
 
@@ -191,18 +202,35 @@ public class ControllerManager : MonoBehaviour
 
 	bool PlayerChangeColor(PlayerInputDevice player)
 	{
-		if ((player.activeDevice is Keyboard kl && kl.aKey.wasPressedThisFrame))// || (player.activeDevice is Gamepad g && g.leftStick))
+		player.timer = Mathf.Max(0, player.timer - Time.deltaTime);
+		if (player.timer == 0) player.canLeft = player.canRight = true;
+		if ((player.activeDevice is Keyboard kl && kl.aKey.wasPressedThisFrame) || (player.activeDevice is Gamepad gl && (player.canLeft && gl.leftStick.ReadValue().x < -0.5)))
 		{
 			player.colorIndex = (player.colorIndex + shipColors.Length - 1) % shipColors.Length;
-			player.shipRenderer.material.color = shipColors[player.colorIndex];
+			player.shipRenderer.materials[1].color = shipColors[player.colorIndex];
+			player.shipRenderer.materials[3].color = shipColors[player.colorIndex];
+			player.canLeft = false;
+			player.timer = 0.3f;
 			return true;
 		}
-		else if ((player.activeDevice is Keyboard kr && kr.dKey.wasPressedThisFrame))// || (player.activeDevice is Gamepad g && g.leftStick))
+		else if ((player.activeDevice is Keyboard kr && kr.dKey.wasPressedThisFrame) || (player.activeDevice is Gamepad gr && (player.canRight && gr.leftStick.ReadValue().x > 0.5)))
 		{
 			player.colorIndex = (player.colorIndex + shipColors.Length + 1) % shipColors.Length;
-			player.shipRenderer.material.color = shipColors[player.colorIndex];
+			player.shipRenderer.materials[1].color = shipColors[player.colorIndex];
+			player.shipRenderer.materials[3].color = shipColors[player.colorIndex];
+			player.canRight = false;
+			player.timer = 0.3f;
 			return true;
 		}
 		return false;
+	}
+
+	void PlayerSetRandomColor(PlayerInputDevice player)
+	{
+		player.colorIndex = UnityEngine.Random.Range(0, shipColors.Count());
+		player.shipRenderer.materials[1].color = shipColors[player.colorIndex];
+		player.shipRenderer.materials[3].color = shipColors[player.colorIndex];
+		player.canRight = false;
+		player.timer = 0.3f;
 	}
 }

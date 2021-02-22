@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
@@ -13,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
 	new Rigidbody rigidbody;
 	PlayerInput playerInput;
 
-	bool isKeyboard;
+	[NonSerialized] public bool isKeyboard;
 	Camera c;
 	float pHeight;
 
@@ -22,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
 	{
 		playerInput = GetComponent<PlayerInput>();
 		rigidbody = GetComponent<Rigidbody>();
-		isKeyboard = playerInput.currentControlScheme == "KBM";
 		c = Camera.main;
 		pHeight = c.transform.position.y - transform.position.y;
 	}
@@ -57,13 +57,5 @@ public class PlayerMovement : MonoBehaviour
 	public void OnLook(CallbackContext context)
 	{
 		lookVector = context.ReadValue<Vector2>();
-	}
-
-	private void OnCollisionEnter(Collision collision)
-	{
-		if (collision.gameObject.layer == 7)
-		{
-
-		}
 	}
 }
